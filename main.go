@@ -1,4 +1,4 @@
-// run: go run main.go run /bin/bash
+// run: sudo go run main.go run /bin/bash
 
 package main
 

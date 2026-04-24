@@ -13,7 +13,10 @@ In this repository, I implemented an MVP container, in which I created an isolat
 
 ```bash
 bash scripts/build_rootfs.sh
+# with root privileges:
 go run main.go run /bin/bash
+# or, without root privileges:
+sudo go run main.go run /bin/bash
 ```
 
 ## References 
