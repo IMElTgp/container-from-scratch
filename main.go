@@ -30,6 +30,12 @@ func run() {
 		Cloneflags: syscall.CLONE_NEWUTS | syscall.CLONE_NEWPID | syscall.CLONE_NEWNS,
 		// CLONE_NEWUTS for creating a new Unix Time Sharing namespace (for hostname)
 		// CLONE_NEWPID for creating a new PID namespace (doesn't affect `ps` which is attached to /proc *mounting*)
+
+		// set the new mnt ns unshared instead of being
+		// automatically set shared recursively
+		// this auto executes
+		//`mount("", "/", "", syscall.MS_REC|syscall.MS_PRIVATE, "")`
+		Unshareflags: syscall.CLONE_NEWNS,
 	}
 	_ = cmd.Run()
 }
